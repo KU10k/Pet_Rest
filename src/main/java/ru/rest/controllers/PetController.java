@@ -2,26 +2,29 @@ package ru.rest.controllers;
 
 
 import lombok.RequiredArgsConstructor;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
+
 import org.springframework.web.bind.annotation.*;
 import ru.rest.models.Pet;
 import ru.rest.service.PetService;
 
-import javax.validation.Valid;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/employees")
+@RequestMapping("/api")
 @RequiredArgsConstructor
 public class PetController {
 
     private final PetService petService;
 
-    @GetMapping("/")
+    @GetMapping("/pet")
     public List<Pet> getAllPet(){
         return petService.getAll();
+    }
+
+    @GetMapping("/pet/{id}")
+    public Pet petInfo(@PathVariable("id") int id){
+        Pet pet = petService.getById(id);
+        return pet;
     }
 
 //    @GetMapping("/{id}")
