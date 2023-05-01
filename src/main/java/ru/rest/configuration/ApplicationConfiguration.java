@@ -22,18 +22,20 @@ import java.util.Properties;
 @PropertySource("classpath:application.properties")
 public class ApplicationConfiguration {
 
-    @Value("jdbc:postgresql://localhost:5432/learn7?useSSL=false&amp;serverTimezone=UTC")
+    @Value("${databases.url}")
     private String url;
-    @Value("postgres")
+    @Value("${databases.username}")
     private String username;
-    @Value("KU10k")
+    @Value("${databases.password}")
     private String password;
+    @Value("${databases.driver}")
+    private String driver;
 
     @Bean
     public DataSource dataSource() {
         ComboPooledDataSource dataSource = new ComboPooledDataSource();
         try {
-            dataSource.setDriverClass("org.postgresql.Driver");
+            dataSource.setDriverClass(driver);
             dataSource.setJdbcUrl(url);
             dataSource.setUser(username);
             dataSource.setPassword(password);
