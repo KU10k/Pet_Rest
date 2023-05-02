@@ -26,8 +26,8 @@ public class PetController {
     private final PetService petService;
 
     @GetMapping("/")
-    public List<Pet> getAllPet() {
-        return petService.getAll();
+    public ResponseEntity<List<Pet>> getAllEmployees() {
+        return new ResponseEntity<>(petService.getAll(), HttpStatus.OK);
     }
 
     @GetMapping("/{id}")
