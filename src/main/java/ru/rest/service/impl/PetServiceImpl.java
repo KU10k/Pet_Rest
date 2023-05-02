@@ -29,8 +29,8 @@ public class PetServiceImpl implements PetService {
 
     @Override
     @Transactional
-    public void saveOrUpdate(Pet pet) {
-        petDAO.saveOrUpdate(pet);
+    public Pet saveOrUpdate(Pet pet) {
+        return petDAO.saveOrUpdate(pet);
     }
 
     @Override

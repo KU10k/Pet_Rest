@@ -30,9 +30,10 @@ public class PetDAOImpl implements PetDAO {
     }
 
     @Override
-    public void saveOrUpdate(Pet pet) {
+    public Pet saveOrUpdate(Pet pet) {
         Session session = sessionFactory.getCurrentSession();
         session.saveOrUpdate(pet);
+        return pet;
     }
 
     @Override

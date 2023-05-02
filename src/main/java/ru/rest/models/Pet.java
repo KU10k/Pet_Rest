@@ -9,6 +9,9 @@ import javax.validation.constraints.*;
 @Entity
 @Data
 @Table(name = "animal")
+
+
+
 public class Pet {
     @Id
     @Column(name = "id",unique = true,updatable = false)

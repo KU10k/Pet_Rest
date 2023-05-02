@@ -11,7 +11,7 @@ public interface PetDAO {
 
     Pet getById(int id);
 
-    void saveOrUpdate(Pet pet);
+    Pet saveOrUpdate(Pet pet);
 
     void delete(int id);
 }
